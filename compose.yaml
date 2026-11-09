@@ -1,0 +1,21 @@
+# 星見坂天文同好会 調査ファイル — 参加者用（配布キット）
+# 必要なのは club（同好会サイト）と culprit（犯人サイト）の 2 つだけ。
+# どちらも同じイメージを役割ちがいで起動します。
+
+services:
+  club:
+    image: ghcr.io/loligothic/hoshimizaka-lab:latest
+    command: ["club"]
+    ports:
+      - "127.0.0.1:5173:8080"
+    volumes:
+      - club-data:/data
+
+  culprit:
+    image: ghcr.io/loligothic/hoshimizaka-lab:latest
+    command: ["culprit"]
+    ports:
+      - "127.0.0.1:5174:8080"
+
+volumes:
+  club-data:
